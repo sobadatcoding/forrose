@@ -5778,6 +5778,7 @@ SkySphere = function (constellations) {
     } 
 
     // Draw constellation labels
+    context.font = this.options.font || '30px Cursive';
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     for (i = 0; i < this.constellationLabels.length; i++) {
@@ -5911,7 +5912,6 @@ SkySphere = function (constellations) {
     }
     this._currentAnimationTimeout = setInterval(rotateAnimation, 32);
   };
-  SkySphere.prototype.initialFontSize = 25; // Specify your desired initial font size
   /**
    * Zoom the sphere multiplying the current radius to the zoomFactor.
    * @param {float} zoomFactor
@@ -5922,16 +5922,11 @@ SkySphere = function (constellations) {
     var centerX = this.containerWidth / 2;
     var centerY = this.containerHeight / 2;
     this.applyTransform(function (skyPoint) {
-        self.zoomFactor = zoomFactor;
-        skyPoint.x = zoomFactor * (skyPoint.x - centerX) + centerX;
-        skyPoint.y = zoomFactor * (skyPoint.y - centerY) + centerY;
-        skyPoint.z = zoomFactor * skyPoint.z;
+      self.zoomFactor = zoomFactor;
+      skyPoint.x = zoomFactor * (skyPoint.x - centerX) + centerX;
+      skyPoint.y = zoomFactor * (skyPoint.y - centerY) + centerY;
+      skyPoint.z = zoomFactor * skyPoint.z;
     });
-    
-    // Update the font size based on the zoom factor
-    var fontSize = this.initialFontSize * zoomFactor;
-    this.context.font = fontSize + 'px Cursive';
-    
     this.drawSky();
   };
   /**

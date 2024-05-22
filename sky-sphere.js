@@ -5565,6 +5565,7 @@ SkySphere = function (constellations) {
     this.containerHeight = this.canvas.height = this.options.height || this.containerWidth;
     this.radius = this.initialRadius = this.options.initialRadius || Math.min(this.containerWidth, this.containerHeight) * 0.45;
     this.context = this.canvas.getContext('2d');
+    this.context.imageSmoothingEnabled = true;
     this.context.lineWidth = 1;
     // Generating the sky lines and points.
     var i, constellationLines = constellations.l, stars = constellations.s;
@@ -5738,7 +5739,7 @@ SkySphere = function (constellations) {
     var context = this.context;
     var i, star, skyPoint, skyPoint1, skyPoint2, radius;
     context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    context.fillStyle = this.options.backgroundColor || '#225A2F';
+    context.fillStyle = this.options.backgroundColor || '#003200';
     context.strokeStyle = '#808080';
     context.beginPath();
     context.arc(this.containerWidth / 2, this.containerHeight / 2, this.radius, 0, 2 * Math.PI, true);

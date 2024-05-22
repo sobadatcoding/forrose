@@ -5778,7 +5778,7 @@ SkySphere = function (constellations) {
     } 
 
     // Draw constellation labels
-    context.font = this.options.font || '16px Cursive';
+    context.font = this.options.font || '20px Cursive';
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     for (i = 0; i < this.constellationLabels.length; i++) {
